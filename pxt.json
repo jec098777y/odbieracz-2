@@ -6,7 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "robotbit": "github:kittenbot/pxt-robotbit#v0.3.8",
-        "pxt-sonar": "github:Microsoft/pxt-sonar#v0.0.5"
+        "pxt-sonar": "github:Microsoft/pxt-sonar#v0.0.5",
+        "IR_V15": "github:osoyoo/OSOYOO_IR_V1.5#31ed1d994323e242c7451818416acbdbff39f3b4"
     },
     "files": [
         "main.blocks",
