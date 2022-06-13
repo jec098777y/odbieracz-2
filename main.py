@@ -28,7 +28,7 @@ def jedzdotylu():
                         
 IR_V15.init(Pins.P8)
 # uihiuhiuhi
-      
+
 def on_button_pressed_a():
     jedzdotylu()
     pass
