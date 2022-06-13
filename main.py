@@ -25,7 +25,6 @@ def jedzdotylu():
                     robotbit.motor_run_dual(robotbit.Motors.M1A, -150, robotbit.Motors.M2A, -150)
                     pause(500)
 
-                        
 IR_V15.init(Pins.P8)
 # uihiuhiuhi
 
