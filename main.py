@@ -1,6 +1,8 @@
+czy_jechać = True
 def do_przodu_i_omijaj():
     while True:
-            
+            if czy_jechać == False:
+                break
             robotbit.motor_run_dual(robotbit.Motors.M1A, -150, robotbit.Motors.M2A, 150) # Jedź do przodu
 
             pause(1000)
@@ -31,9 +33,16 @@ IR_V15.init(Pins.P8)
 
 def on_button_pressed_a():
     do_przodu_i_omijaj()
+    czy_jechać = True
     pass
 input.on_button_pressed(Button.A, on_button_pressed_a)
 def on_press_event_ch_minus():
+    czy_jechać = True
     do_przodu_i_omijaj()
     pass
 IR_V15.on_press_event(RemoteButton.NEXT, on_press_event_ch_minus)
+def on_press_event_ch():
+    robotbit.motor_run_dual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
+    czy_jechać = False
+    pass
+IR_V15.on_press_event(RemoteButton.ADD, on_press_event_ch)
