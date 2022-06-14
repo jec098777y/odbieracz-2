@@ -1,5 +1,6 @@
 czy_jechać = True
 def do_przodu_i_omijaj():
+    global czy_jechać
     while True:
             if czy_jechać == False:
                 break
@@ -32,6 +33,7 @@ IR_V15.init(Pins.P8)
 # uihiuhiuhi
 
 def on_button_pressed_a():
+    global czy_jechać
     do_przodu_i_omijaj()
     czy_jechać = True
     pass
@@ -42,6 +44,7 @@ def on_press_event_ch_minus():
     pass
 IR_V15.on_press_event(RemoteButton.NEXT, on_press_event_ch_minus)
 def on_press_event_ch():
+    global czy_jechać
     robotbit.motor_run_dual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
     czy_jechać = False
     pass
