@@ -48,12 +48,13 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
     
 })
 IR_V15.onPressEvent(RemoteButton.NEXT, function on_press_event_ch_minus() {
-    let czy_jechać = true
-    do_przodu_i_omijaj()
+    
+    czy_jechać = true
+    control.inBackground(do_przodu_i_omijaj)
+    // do_przodu_i_omijaj()
     
 })
 IR_V15.onPressEvent(RemoteButton.NUM_100, function on_press_event_ch() {
-    basic.showString("Stop")
     
     czy_jechać = false
     robotbit.MotorRunDual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
