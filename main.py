@@ -44,8 +44,9 @@ def on_press_event_ch_minus():
     pass
 IR_V15.on_press_event(RemoteButton.NEXT, on_press_event_ch_minus)
 def on_press_event_ch():
+    basic.show_string("Stop")
     global czy_jechać
-    robotbit.motor_run_dual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
     czy_jechać = False
-    pass
-IR_V15.on_press_event(RemoteButton.ADD, on_press_event_ch)
+    robotbit.motor_run_dual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
+    
+IR_V15.on_press_event(RemoteButton.CH_ADD, on_press_event_ch)
