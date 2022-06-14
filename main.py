@@ -50,4 +50,4 @@ def on_press_event_ch():
     czy_jechać = False
     robotbit.motor_run_dual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
     
-IR_V15.on_press_event(RemoteButton.NUM_100, on_press_event_ch)
+IR_V15.on_press_event(RemoteButton.ADD, on_press_event_ch)
