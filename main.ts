@@ -52,7 +52,7 @@ IR_V15.onPressEvent(RemoteButton.NEXT, function on_press_event_ch_minus() {
     do_przodu_i_omijaj()
     
 })
-IR_V15.onPressEvent(RemoteButton.CH_Add, function on_press_event_ch() {
+IR_V15.onPressEvent(RemoteButton.NUM_100, function on_press_event_ch() {
     basic.showString("Stop")
     
     czy_jechać = false
