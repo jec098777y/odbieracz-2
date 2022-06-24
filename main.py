@@ -1,10 +1,14 @@
 czy_jechać = True
+
+kolory = robotbit.rgb()
 def do_przodu_i_omijaj():
     global czy_jechać
     while True:
             if czy_jechać == False:
                 break
             robotbit.motor_run_dual(robotbit.Motors.M1A, -150, robotbit.Motors.M2A, 150) # Jedź do przodu
+
+            kolory.show_rainbow(1, 360)
 
             pause(1000)
             robotbit.motor_run_dual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)# Zatrzymaj się

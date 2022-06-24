@@ -1,4 +1,5 @@
 let czy_jechać = true
+let kolory = robotbit.rgb()
 function do_przodu_i_omijaj() {
     let odleglosc2: number;
     let odleglosc1: number;
@@ -10,6 +11,7 @@ function do_przodu_i_omijaj() {
         
         robotbit.MotorRunDual(robotbit.Motors.M1A, -150, robotbit.Motors.M2A, 150)
         //  Jedź do przodu
+        kolory.showRainbow(1, 360)
         pause(1000)
         robotbit.MotorRunDual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
         //  Zatrzymaj się
