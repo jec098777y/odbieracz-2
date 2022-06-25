@@ -33,7 +33,7 @@ def do_przodu_i_omijaj():
                     robotbit.motor_run_dual(robotbit.Motors.M1A, -150, robotbit.Motors.M2A, -150)
                     pause(500)
 
-IR_V15.init(Pins.P8)
+makerbit.connect_ir_receiver(DigitalPin.P8, IrProtocol.NEC)
 # uihiuhiuhi
 
 def on_button_pressed_a():
@@ -48,10 +48,25 @@ def on_press_event_ch_minus():
     control.in_background(do_przodu_i_omijaj)
     #do_przodu_i_omijaj()
     pass
-IR_V15.on_press_event(RemoteButton.NEXT, on_press_event_ch_minus)
+#IR_V15.on_press_event(RemoteButton.NEXT, on_press_event_ch_minus)
 def on_press_event_ch():
     global czy_jechać
     czy_jechać = False
     robotbit.motor_run_dual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
     
-IR_V15.on_press_event(RemoteButton.ADD, on_press_event_ch)
+#IR_V15.on_press_event(RemoteButton.ADD, on_press_event_ch)
+def on_ir_button_any_pressed():
+    pass
+def on_ir_datagram():
+    
+    kod = makerbit.ir_datagram()
+    if kod == "0x00FF02FD":
+        on_press_event_ch_minus()
+
+        
+    elif kod == "0x00FF9867":
+        
+        on_press_event_ch()
+makerbit.on_ir_datagram(on_ir_datagram)
+#0x00FF02FD
+#0x00FF9867

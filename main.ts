@@ -41,7 +41,7 @@ function do_przodu_i_omijaj() {
     }
 }
 
-IR_V15.init(Pins.P8)
+makerbit.connectIrReceiver(DigitalPin.P8, IrProtocol.NEC)
 //  uihiuhiuhi
 input.onButtonPressed(Button.A, function on_button_pressed_a() {
     
@@ -49,15 +49,32 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
     czy_jechać = true
     
 })
-IR_V15.onPressEvent(RemoteButton.NEXT, function on_press_event_ch_minus() {
+function on_press_event_ch_minus() {
     
     czy_jechać = true
     control.inBackground(do_przodu_i_omijaj)
     // do_przodu_i_omijaj()
     
-})
-IR_V15.onPressEvent(RemoteButton.Add, function on_press_event_ch() {
+}
+
+// IR_V15.on_press_event(RemoteButton.NEXT, on_press_event_ch_minus)
+function on_press_event_ch() {
     
     czy_jechać = false
     robotbit.MotorRunDual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
+}
+
+// IR_V15.on_press_event(RemoteButton.ADD, on_press_event_ch)
+function on_ir_button_any_pressed() {
+    
+}
+
+makerbit.onIrDatagram(function on_ir_datagram() {
+    let kod = makerbit.irDatagram()
+    if (kod == "0x00FF02FD") {
+        on_press_event_ch_minus()
+    } else if (kod == "0x00FF9867") {
+        on_press_event_ch()
+    }
+    
 })

@@ -6,7 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "robotbit": "github:kittenbot/pxt-robotbit#v0.3.8",
-        "pxt-sonar": "github:Microsoft/pxt-sonar#v0.0.5"
+        "pxt-sonar": "github:Microsoft/pxt-sonar#v0.0.5",
+        "MakerBit-IR-Receiver": "github:1010technologies/pxt-makerbit-ir-receiver#v1.5.14"
     },
     "files": [
         "main.blocks",
