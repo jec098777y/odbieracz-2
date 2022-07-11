@@ -1,4 +1,5 @@
 let czy_jechać = true
+OLED.init(128, 64)
 let kolory = robotbit.rgb()
 function do_przodu_i_omijaj() {
     let odleglosc2: number;
@@ -72,8 +73,10 @@ function on_ir_button_any_pressed() {
 makerbit.onIrDatagram(function on_ir_datagram() {
     let kod = makerbit.irDatagram()
     if (kod == "0x00FF02FD") {
+        OLED.writeStringNewLine("jade do przodu")
         on_press_event_ch_minus()
     } else if (kod == "0x00FF9867") {
+        OLED.writeStringNewLine("zatrzymuje sie")
         on_press_event_ch()
     }
     

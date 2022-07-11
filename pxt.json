@@ -7,7 +7,8 @@
         "microphone": "*",
         "robotbit": "github:kittenbot/pxt-robotbit#v0.3.8",
         "pxt-sonar": "github:Microsoft/pxt-sonar#v0.0.5",
-        "MakerBit-IR-Receiver": "github:1010technologies/pxt-makerbit-ir-receiver#v1.5.14"
+        "MakerBit-IR-Receiver": "github:1010technologies/pxt-makerbit-ir-receiver#v1.5.14",
+        "SSD1306_OLED": "github:tinkertanker/pxt-oled-ssd1306#v2.0.13"
     },
     "files": [
         "main.blocks",
@@ -19,7 +20,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "5.0.6",
+        "target": "5.0.12",
         "targetId": "microbit"
     },
     "supportedTargets": [

@@ -1,5 +1,5 @@
 czy_jechać = True
-
+OLED.init(128, 64)
 kolory = robotbit.rgb()
 def do_przodu_i_omijaj():
     global czy_jechać
@@ -45,6 +45,7 @@ input.on_button_pressed(Button.A, on_button_pressed_a)
 def on_press_event_ch_minus():
     global czy_jechać
     czy_jechać = True
+    
     control.in_background(do_przodu_i_omijaj)
     #do_przodu_i_omijaj()
     pass
@@ -52,6 +53,8 @@ def on_press_event_ch_minus():
 def on_press_event_ch():
     global czy_jechać
     czy_jechać = False
+    
+  
     robotbit.motor_run_dual(robotbit.Motors.M1A, 0, robotbit.Motors.M2A, 0)
     
 #IR_V15.on_press_event(RemoteButton.ADD, on_press_event_ch)
@@ -61,12 +64,16 @@ def on_ir_datagram():
     
     kod = makerbit.ir_datagram()
     if kod == "0x00FF02FD":
+        OLED.write_string_new_line("jade do przodu")
         on_press_event_ch_minus()
-
+    
         
     elif kod == "0x00FF9867":
         
+        OLED.write_string_new_line("zatrzymuje sie")
         on_press_event_ch()
+        
+ 
 makerbit.on_ir_datagram(on_ir_datagram)
 #0x00FF02FD
 #0x00FF9867
